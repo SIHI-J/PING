@@ -160,7 +160,7 @@ function Detail() {
               <img
                 src={
                   post?.user_image
-                    ? `${BASE_URL}${post.user_image}`
+                    ? `${BASE_URL}/uploads/${post.user_image}`
                     : `${process.env.PUBLIC_URL}/images/default.png`
                 }
                 alt="프로필"

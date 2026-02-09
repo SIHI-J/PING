@@ -6,7 +6,7 @@ const PAGE_SIZE = 4;
 
 function FeedbackExplorer() {
   const [categories, setCategories] = useState({});
-  const [feedbacks, setFeedbacks] = useState([]); // 🔥 핵심
+  const [feedbacks, setFeedbacks] = useState([]); 
   const [activeMain, setActiveMain] = useState('전체');
   const [activeSub, setActiveSub] = useState('전체');
   const [visibleCount, setVisibleCount] = useState(PAGE_SIZE);
