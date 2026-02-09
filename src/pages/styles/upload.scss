@@ -32,7 +32,7 @@
     text-align: center;
     background-color: $main_gray_50;
     cursor: pointer;
-    transition: border-color 0;
+    transition: border-color 0s;
 
     .upload_dropzoneInner {
       display: flex;
