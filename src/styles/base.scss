@@ -132,7 +132,8 @@ $typo-styles: (
   $color: null, // 글자색 직접 지정
   $border: null, // border 색 직접 지정
   $hover: true //hover 기본값 안쓸경우 fasle
-  ) {
+
+) {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -445,6 +446,7 @@ time,
 mark,
 audio,
 video {
+  color: $main_gray_800;
   margin: 0;
   padding: 0;
   border: 0;
