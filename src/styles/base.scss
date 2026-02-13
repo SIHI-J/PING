@@ -544,6 +544,8 @@ hr {
 }
 
 input,
-select {
+select,
+button {
   vertical-align: middle;
+  color: $main_gray_800;
 }
