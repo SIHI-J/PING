@@ -84,6 +84,7 @@ $typo-styles: (
   font-weight: $weight;
   line-height: map.get($style, lh);
   letter-spacing: map.get($style, ls);
+  color: $main_gray_800;
 }
 
 // 사용 예시
