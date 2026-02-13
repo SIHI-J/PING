@@ -1,5 +1,6 @@
 @use'../../styles/base' as *;
 
+/* upload.js 서식 */
 .upload_preview {
   margin-top: 16px;
 
@@ -11,7 +12,6 @@
   }
 }
 
-/* upload.js 서식 */
 .upload {
   background: $main-white;
 
@@ -43,7 +43,7 @@
     text-align: center;
     background-color: $main_gray_50;
     cursor: pointer;
-    transition: border-color 0s;
+    transition: border-color 0;
 
     .upload_dropzoneInner {
       display: flex;
@@ -253,15 +253,12 @@
       }
     }
 
-    .upload_header p {
-      @include typo("headingSm", $regular);
-    }
+    .upload_header p {@include typo("headingSm", $regular);}
   }
 }
 
 @media screen and (max-width: 767px) {
   .upload {
-
     // .upload_header{
     //   padding-top: 50px;
     // }
@@ -270,5 +267,10 @@
         grid-column: 1 / span 4;
       }
     }
+
+    .upload_header p {
+      
+    }
   }
+
 }

@@ -100,10 +100,8 @@
 
 
 .auth {
-
-
   .grid {
-    padding-top: 96px;
+    padding: 120px 0;
 
     h2 {
       padding: 50px;
@@ -115,11 +113,11 @@
     .social-login {
       display: flex;
       justify-content: space-around;
-      padding: 20px 50px;
+      padding: 40px 40px;
 
       li {
-        border-radius: 32px;
-        height: 64px;
+        border-radius: 40px;
+        height: 80px;
         @include sns-shadow;
       }
 
@@ -130,8 +128,8 @@
       }
 
       img {
-        width: 64px;
-        border-radius: 32px;
+        width: 80px;
+        border-radius: 40px;
       }
     }
 
@@ -145,8 +143,6 @@
 
 //login 서식
 .login_section {
-  height: calc(100vh - 87px);
-
   .login_form {
     a {
       margin: 20px 0;
@@ -213,16 +209,8 @@
 }
 
 @media (min-width: 768px) and (max-width: 1023px) {
-  .login_section {
-    height: calc(100vh - 79px);
-  }
-
-  .auth {
-
-
-    .grid .col-4 {
-      grid-column: 2 / span 6;
-    }
+  .auth .grid .col-4 {
+    grid-column: 2 / span 6;
   }
 }
 

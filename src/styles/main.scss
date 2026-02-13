@@ -15,6 +15,47 @@ body {
   flex-direction: column;
 }
 
+.top-button {
+  position: fixed;
+  right: 30px;
+  bottom: 40px;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  color: white;
+  font-family: $font-family-kimm;
+  font-weight: 500;
+
+  @include btn-shadow; // 그림자만 적용
+
+  background: $gradient; // 그라디언트 따로 적용
+  background-size: 300% 300%;
+  animation: gradientMove 6s ease infinite;
+
+  transition: 0.3s;
+
+  &:hover {
+    transform: translateY(-3px);
+  }
+}
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
 main {
   flex: 1;
   /* 핵심 */
@@ -918,5 +959,9 @@ main {
         @include btn(md, "fixedMo", false);
       }
     }
+  }
+
+  .top-button {
+    display: none;
   }
 }

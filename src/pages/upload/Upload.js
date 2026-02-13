@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import '../styles/upload.scss';
 import { useNavigate } from 'react-router-dom';
-import imageIcon from '../../assets/icon-image.svg';
+import upload from "../../assets/icon-upload.svg";
 import axios from 'axios';
 import BASE_URL from '../../config';
 function Upload(props) {
@@ -12,12 +12,22 @@ function Upload(props) {
 
   // 페이지간 이동을 위한 url관리
   const navigate = useNavigate();
-
+  const fileInputRef = useRef(null);
+  
   //린 
   const [file, setFile] = useState(null);
+  const [preview, setPreview] = useState(null);
   const [title, setTitle] = useState('');
   const [desc, setDesc] = useState('');
 
+  // useEffect(() => {
+  //   return () => {
+  //     if (preview) {
+  //       URL.revokeObjectURL(preview);
+  //     }
+  //   };
+  // }, [preview]);
+  
   /* ===============================
      🔹 카테고리 데이터 로딩
      =============================== */
@@ -173,12 +183,18 @@ function Upload(props) {
         <form className="upload_form col-6">
 
           {/* 이미지 업로드 안내 영역 */}
-          <div className="upload_dropzone" role='button' tabIndex={0}>
+        <div className="upload_dropzone" role='button' tabIndex={0}
+          onClick={() => fileInputRef.current?.click()}>
             <div className="upload_dropzoneInner">
+              {preview  ?(
+                <div className="upload_preview">
+                  <img src={preview} alt="미리보기" />
+                </div>
+              ):(
               <div className="upload_icon" aria-hidden="true">
-                <img src={imageIcon} alt="이미지 아이콘" />
+                <img src={upload} alt="이미지 아이콘" />
               </div>
-
+              )}
               <p className="upload_dropText">
                 <strong>클릭하여 업로드 </strong>
                 <span>또는 드래그 앤 드롭 </span>
@@ -190,10 +206,18 @@ function Upload(props) {
             </div>
 
             <input
+              ref={fileInputRef}
               type="file"
               className="upload_file"
               accept='.png,.jpg,.jpeg,.pdf'
-              onChange={(e) => setFile(e.target.files[0])}
+              onChange={(e) => {
+                const selectedFile = e.target.files?.[0];
+                if (!selectedFile) return;
+
+              setFile(selectedFile);
+              setPreview(URL.createObjectURL(selectedFile));
+                }}
+              style={{ display: 'none' }}
               required
             />
           </div>
@@ -284,4 +308,8 @@ function Upload(props) {
   );
 }
 
+
 export default Upload;
+
+
+

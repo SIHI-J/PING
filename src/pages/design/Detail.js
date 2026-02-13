@@ -147,7 +147,7 @@ function Detail() {
   //     }),
   //   };
 
-  //   setMemo(prev => […prev, newMemo]);
+  //   setMemo(prev => [...prev, newMemo]);
   //   setMemoText('');
   // };
 
@@ -395,4 +395,5 @@ function Detail() {
 
 
 export default Detail;
+
 
