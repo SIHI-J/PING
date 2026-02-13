@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import backIcon from '../../assets/icon-chevron-left.svg';
 import CloseIcon from '../../assets/icon-x.svg';
+import defaultPost from '../../assets/default_post.png';
 import axios from 'axios';
 import dayjs from 'dayjs';
 import 'dayjs/locale/ko';
@@ -66,13 +67,13 @@ function Detail() {
   /* ================================== 
     조회수 증가
   ================================ */
-  useEffect(()=>{
-    if(!id) return;
+  useEffect(() => {
+    if (!id) return;
 
     axios.post(`${BASE_URL}/api/posts/${id}/view`)
-    .catch(err=>{
-      console.error('조회수 증가 실패:', err);
-    });
+      .catch(err => {
+        console.error('조회수 증가 실패:', err);
+      });
   }, [id]);
 
   /* ===============================
@@ -179,12 +180,19 @@ function Detail() {
 
             <div className="img_box">
               <div className="image_wrap">
-                {imageUrl && (
-                  <img
-                    src={`${BASE_URL}${imageUrl}`}
-                    alt="상세 이미지"
-                  />
-                )}
+                <img
+                  src={
+                    imageUrl
+                      ? `${BASE_URL}${imageUrl}`
+                      : defaultPost
+                  }
+                  alt="상세 이미지"
+                  onError={(e) => {
+                    e.currentTarget.onerror = null;
+                    e.currentTarget.src = defaultPost;
+                  }}
+                />
+
 
                 {pins.map((pin, index) => (
                   <div
@@ -354,7 +362,7 @@ function Detail() {
                     onChange={(e) => setAnswerText(e.target.value)}
                   />
 
-                  <button 
+                  <button
                     onClick={handleAddAnswer}>댓글 게시</button>
                   <hr />
                 </div>
@@ -377,7 +385,7 @@ function Detail() {
                   //onChange={(e) => setMemoText(e.target.value)}
                   />
 
-                  <button 
+                  <button
                   // onClick={handleAddMemo}
                   >
                     메모 저장
