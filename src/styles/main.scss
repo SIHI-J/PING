@@ -111,7 +111,11 @@ main {
     }
 
     .top-text {
-      color: $main-white;
+
+      h2,
+      p {
+        color: $main-white;
+      }
     }
 
     /* 우측 히어로 이미지 */

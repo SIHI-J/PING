@@ -6,9 +6,10 @@
   section {
     padding: 80px 0;
 
-    h2{
-      color:$main_gray_800;
+    h2 {
+      color: $main_gray_800;
     }
+
     .qna-form_btn {
       grid-column: 1/ -1;
       display: flex;
@@ -46,20 +47,21 @@
         }
 
         tbody {
-          color:$main_gray_500;
+          color: $main_gray_500;
+
           /* =====================
             질문 행
           ===================== */
           .qna-row {
             cursor: pointer;
-            
+
             &:hover {
               background: rgba($primary_blue, 0.05);
             }
 
-            td{
-              position:relative;
-              padding:10px 0px;
+            td {
+              position: relative;
+              padding: 10px 0px;
             }
 
             td:not(:nth-child(2)) {
@@ -67,9 +69,9 @@
             }
 
             .arrow {
-              position:absolute;
-              right:-10px;
-              top:15px;
+              position: absolute;
+              right: -10px;
+              top: 15px;
               font-size: 12px;
               // display: inline-flex; // 기준 안정화
               // align-items: center;
@@ -117,6 +119,7 @@
 
             .qna-answer-inner {
               padding: 30px;
+              color: $main-white;
             }
           }
         }
