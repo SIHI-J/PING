@@ -7,7 +7,13 @@ import axios from 'axios';
 import dayjs from 'dayjs';
 import 'dayjs/locale/ko';
 import BASE_URL from '../../config';
+import utc from 'dayjs/plugin/utc';
+import timezone from 'dayjs/plugin/timezone';
+
 dayjs.locale('ko');
+dayjs.extend(utc);
+dayjs.extend(timezone);
+dayjs.tz.setDefault('Asia/Seoul');
 
 function Detail() {
   const navigate = useNavigate();
@@ -141,7 +147,7 @@ function Detail() {
   //     }),
   //   };
 
-  //   setMemo(prev => [...prev, newMemo]);
+  //   setMemo(prev => […prev, newMemo]);
   //   setMemoText('');
   // };
 
@@ -213,7 +219,7 @@ function Detail() {
                   ? pins.findIndex(p => p.pin_no === selectedPin.pin_no) + 1
                   : '-'}
               </span>
-              Pin Question
+              선택된 핀에 대한 피드백을 남겨주세요.
             </p>
 
             <hr />
@@ -234,7 +240,7 @@ function Detail() {
                   <li key={a.answer_no}>
                     <strong>{a.user_nickname}</strong>
                     <br />
-                    {dayjs(a.create_datetime).format('YYYY.MM.DD HH:mm')}
+                    {dayjs.utc(a.create_datetime).format('YYYY.MM.DD HH:mm')}
                     <br />
                     {a.answer_content}
                   </li>
@@ -258,7 +264,7 @@ function Detail() {
             </div>
 
             <div className="box-right_memo">
-              <p>My Memo (Private)</p>
+              <p>My Memo (Private) 🔐</p>
               {/* {memo.map(m => (
                 <div key={m.id}>
                   {m.content}
@@ -269,7 +275,7 @@ function Detail() {
 
               <textarea
                 className="card-box"
-                placeholder="이 질문에 대한 개인 메모"
+                placeholder={`이 게시물에 대한 개인의 생각이나 메모를 자유롭게 남겨보세요.\n(작성한 내용은 본인만 볼 수 있습니다)`}
                 disabled
               //value={memoText}
               //onChange={(e) => setMemoText(e.target.value)}
@@ -306,7 +312,7 @@ function Detail() {
                       ? pins.findIndex(p => p.pin_no === selectedPin.pin_no) + 1
                       : '-'}
                   </span>
-                  Pin Question
+                  선택된 핀에 대한 피드백을 남겨주세요.
                 </p>
 
                 <hr />
@@ -328,7 +334,7 @@ function Detail() {
                         <strong>{a.user_nickname}</strong>
                         <br />
                         <span>
-                          {dayjs(a.create_datetime).format('YYYY.MM.DD HH:mm')}
+                          {dayjs.utc(a.create_datetime).format('YYYY.MM.DD HH:mm')}
                         </span>
                         <br />
                         {a.answer_content}
@@ -354,7 +360,7 @@ function Detail() {
                 </div>
 
                 <div className="box-right_memo">
-                  <p>My Memo (Private)</p>
+                  <p>My Memo (Private) 🔐</p>
                   {/* {memo.map(m => (
                     <div key={m.id}>
                       {m.content}
@@ -365,7 +371,7 @@ function Detail() {
 
                   <textarea
                     className="card-box"
-                    placeholder="이 질문에 대한 개인 메모"
+                    placeholder={`이 게시물에 대한 개인의 생각이나 메모를 자유롭게 남겨보세요.\n(작성한 내용은 본인만 볼 수 있습니다)`}
                     disabled
                   //value={memoText}
                   //onChange={(e) => setMemoText(e.target.value)}
@@ -387,4 +393,6 @@ function Detail() {
   );
 }
 
+
 export default Detail;
+
