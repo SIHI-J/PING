@@ -299,6 +299,7 @@
           //border: 1px solid $main-white;
 
           @include typo("bodytextXl", $bold);
+          color: $main-white;
         }
 
       }
