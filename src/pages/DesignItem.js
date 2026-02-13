@@ -1,5 +1,3 @@
-designitem.js 
-
 import eye from "../assets/icon-eye.svg";
 import comments from "../assets/icon-edit.svg";
 import defaultPost from "../assets/default_post.png"; // ✅ 추가
