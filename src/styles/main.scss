@@ -486,8 +486,8 @@ main {
     gap: 30px;
 
     h2 {
-      color: $main-white;
       @include typo("displayMd", $bold);
+      color: $main-white;
     }
 
     .upload-btn {
